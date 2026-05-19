@@ -1,0 +1,207 @@
+:root {
+    --primary: #ff758c;
+    --secondary: #ff7eb3;
+    --bg-start: #2a0845;
+    --bg-end: #6441A5;
+    --text-light: #ffffff;
+    --text-muted: #f8f8f8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end), #ff758c, #6441A5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--text-light);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.7; }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    width: 100%;
+    max-width: 650px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.2);
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px 0 rgba(0, 0, 0, 0.3);
+}
+
+.message-container {
+    width: 100%;
+    position: absolute;
+    padding: 0 30px;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.message-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9) translateY(20px);
+    pointer-events: none;
+}
+
+.message-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+}
+
+h1, h2 {
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff1eb 0%, #ace0f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.8rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.2rem;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.next-btn {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border: none;
+    padding: 14px 40px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.next-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 117, 140, 0.6);
+}
+
+.next-btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.next-btn.reload {
+    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.next-btn.reload:hover {
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.6);
+}
+
+/* Heart Animation */
+.heart-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.heart {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff0844 0%, #ffb199 100%);
+    position: relative;
+    transform: rotate(45deg);
+    animation: heartbeat 1.5s infinite;
+    box-shadow: 0 0 40px rgba(255, 8, 68, 0.6);
+}
+
+.heart::before, .heart::after {
+    content: '';
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff0844 0%, #ffb199 100%);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    left: -30px;
+}
+
+.heart::after {
+    top: -30px;
+}
+
+@keyframes heartbeat {
+    0% { transform: rotate(45deg) scale(1); }
+    14% { transform: rotate(45deg) scale(1.3); }
+    28% { transform: rotate(45deg) scale(1); }
+    42% { transform: rotate(45deg) scale(1.3); }
+    70% { transform: rotate(45deg) scale(1); }
+}

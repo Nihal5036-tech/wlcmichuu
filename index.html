@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back! ❤️</title>
+    <meta name="description" content="A special greeting for a special person.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="container">
+        <div class="glass-card" id="mainCard">
+            <!-- Step 1 -->
+            <div class="message-container hidden" id="message1">
+                <h1>Welcome Back, Ishita! ✨</h1>
+                <p>Click anywhere to continue, my dearest Ichuuu...</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="message-container hidden" id="message2">
+                <h2>I know you had a long day...</h2>
+                <p>College classes and a lab? You must be so exhausted. 🥺</p>
+                <button class="next-btn" onclick="nextMessage(3)">Next</button>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="message-container hidden" id="message3">
+                <h2>But you did amazingly! 🌟</h2>
+                <p>I'm so incredibly proud of how hard you work every single day.</p>
+                <button class="next-btn" onclick="nextMessage(4)">Next</button>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="message-container hidden" id="message4">
+                <div class="heart-container">
+                    <div class="heart"></div>
+                </div>
+                <h2>Now it's time to relax.</h2>
+                <p>You deserve all the rest, happiness, and cuddles in the world. I love you! ❤️</p>
+                <button class="next-btn reload" onclick="location.reload()">Replay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-controls"
+        style="position: absolute; bottom: 20px; right: 20px; z-index: 10; opacity: 0; transition: opacity 1s ease;"
+        id="musicPlayer">
+        <audio id="bgMusic" loop>
+            <!-- Tries to play a local 'song.mp3' if you add one, otherwise falls back to a relaxing online lofi track -->
+            <source src="song.mp3" type="audio/mpeg">
+            <source
+                src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3"
+                type="audio/mpeg">
+        </audio>
+        <button id="musicToggle" class="next-btn" onclick="toggleMusic()"
+            style="padding: 10px 20px; font-size: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            🔊 Playing Music
+        </button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
